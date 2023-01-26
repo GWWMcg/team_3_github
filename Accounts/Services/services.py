@@ -1,5 +1,5 @@
-from Models.models import Address, Account, Customer
-from Repository.repository import Repository
+from Accounts.Models.models import Account
+from Accounts.Repository.repository import Repository
 
 class Services:
 

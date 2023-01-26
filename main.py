@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from Services.services import Services
-from Models.models import Account
+from Accounts.Services.services import Services
+from Accounts.Models.models import Account
 app = FastAPI()
 
 service = Services()
