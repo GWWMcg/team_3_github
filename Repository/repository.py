@@ -1,15 +1,24 @@
+import configparser
 from distutils.command.config import config
 import psycopg2
 
 class Repository:
     
+    def __inti__(self):
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+
+        self.HOST = config['postgres']['host']
+        self.USER = config['postgres']['user']
+        self.PASSWORD = config['postgres']['password']
+        self.DATABASE = config['postgres']['database']
+
     def open_connection(self):
         conn = psycopg2.connect(    
-            host='127.0.0.1',
-            port=5432,
-            user='postgres',
-            password='mypassword',
-            dbname='capstone'
+            host=self.HOST,
+            user=self.USER,
+            password=self.PASSWORD,
+            dbname=self.DATABASE
         )
         return conn
 
