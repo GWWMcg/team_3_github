@@ -4,16 +4,17 @@ import psycopg2
 
 class Repository:
     
-    def __inti__(self):
-        config = configparser.ConfigParser()
-        config.read('config.ini')
+    def __init__(self):
+        #config = configparser.ConfigParser()
+        #config.read('config.ini')
 
-        self.HOST = config['postgres']['host']
-        self.USER = config['postgres']['user']
-        self.PASSWORD = config['postgres']['password']
-        self.DATABASE = config['postgres']['database']
-
+        self.HOST = 'team-3-database.ckokfd9swhyk.us-west-2.rds.amazonaws.com'
+        self.USER = 'team_3_user'
+        self.PASSWORD = 'team3password'
+        self.DATABASE = 'postgres'
+        
     def open_connection(self):
+         
         conn = psycopg2.connect(    
             host=self.HOST,
             user=self.USER,
