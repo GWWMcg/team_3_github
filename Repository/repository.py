@@ -49,12 +49,11 @@ class AccountRepository:
             with db.cursor() as cursor:
                 cursor.execute("""
                     SELECT * FROM account
-                    WHERE id = %(account_id)s 
-                    RETURNING id, account_number, customer_id, current_balance                    
+                    WHERE id = %(account_id)s                    
                 """, {
                     'account_id': account_id
                 })
-                account = cursor.fetchone()[0] # putting return in here may solve todo issue above
+                account = cursor.fetchone() # putting return in here may solve todo issue above
         return account
 
 class AddressRepository:
