@@ -46,7 +46,7 @@ class AccountRepository:
 
     def get_account(self, account_id): # TODO: no check if the account id is not there
         with self.open_connection() as db:
-            with db.cursor as cursor:
+            with db.cursor() as cursor:
                 cursor.execute("""
                     SELECT * FROM account
                     WHERE id = %(account_id)s
