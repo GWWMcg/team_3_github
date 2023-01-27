@@ -109,7 +109,7 @@ class AddressRepository:
                         'address_id': id 
                     }
                 )
-                address = cursor.fetchmany(1)
+                address = cursor.fetchone()
         return address
 
 class CustomerRepository:
@@ -165,7 +165,7 @@ class CustomerRepository:
                         'customer_id': id 
                     }
                 )
-                customer = cursor.fetchmany(1)
+                customer = cursor.fetchone()
         return customer   
 
 # class Repository:
