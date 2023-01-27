@@ -49,8 +49,7 @@ class AccountRepository:
             with db.cursor() as cursor:
                 cursor.execute("""
                     SELECT * FROM account
-                    WHERE id = %(account_id)s
-                        
+                    WHERE id = %(account_id)s                     
                 """, {
                     'account_id': account_id
                 })
@@ -143,7 +142,6 @@ class CustomerRepository:
                     'address_id': customer.address,
                     'email_address': customer.email_address
                 })
-                print(customer)
                 customer = cursor.fetchone()[0]
         return customer
     
@@ -164,11 +162,11 @@ class CustomerRepository:
                     SELECT * FROM customer
                     WHERE id  = %(customer_id)s
                     """, {
-                        'address_id': id 
+                        'customer_id': id 
                     }
                 )
-                address = cursor.fetchmany(1)
-        return address   
+                customer = cursor.fetchmany(1)
+        return customer   
 
 # class Repository:
     
