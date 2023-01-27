@@ -32,9 +32,9 @@ async def open_address(address: Address):
     return add_ser.insert_address(address)
 
 @app.get('/list_customers')
-async def get_addresses():
-    return cust_ser.get_addresses()
+async def get_customers():
+    return cust_ser.get_customers()
 
 @app.get('/customer')
-async def get_addresses(id):
-    return cust_ser.get_address(id)
+async def get_customer(id):
+    return cust_ser.get_customer(id)
