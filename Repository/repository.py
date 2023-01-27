@@ -3,14 +3,11 @@ from distutils.command.config import config
 import psycopg2
 
 class AccountRepository:
-    def __inti__(self):
-        config = configparser.ConfigParser()
-        config.read('config.ini')
-
-        self.HOST = config['postgres']['host']
-        self.USER = config['postgres']['user']
-        self.PASSWORD = config['postgres']['password']
-        self.DATABASE = config['postgres']['database']
+    def __init__(self):
+        self.HOST = 'team-3-database.ckokfd9swhyk.us-west-2.rds.amazonaws.com'
+        self.USER = 'team_3_user'
+        self.PASSWORD = 'team3password'
+        self.DATABASE = 'postgres'
 
     def open_connection(self):
         conn = psycopg2.connect(    
@@ -28,7 +25,7 @@ class AccountRepository:
                     SELECT * FROM account
                     """
                 )
-                accounts = cursor.fetchmany(1)
+                accounts = cursor.fetchall()
         return accounts
 
     def insert_account(self, account):
@@ -61,14 +58,11 @@ class AccountRepository:
         return account
 
 class AddressRepository:
-    def __inti__(self):
-        config = configparser.ConfigParser()
-        config.read('config.ini')
-
-        self.HOST = config['postgres']['host']
-        self.USER = config['postgres']['user']
-        self.PASSWORD = config['postgres']['password']
-        self.DATABASE = config['postgres']['database']
+    def __init__(self):
+        self.HOST = 'team-3-database.ckokfd9swhyk.us-west-2.rds.amazonaws.com'
+        self.USER = 'team_3_user'
+        self.PASSWORD = 'team3password'
+        self.DATABASE = 'postgres'
 
     def open_connection(self):
         conn = psycopg2.connect(    
@@ -120,14 +114,11 @@ class AddressRepository:
         return address
 
 class CustomerRepository:
-    def __inti__(self):
-        config = configparser.ConfigParser()
-        config.read('config.ini')
-
-        self.HOST = config['postgres']['host']
-        self.USER = config['postgres']['user']
-        self.PASSWORD = config['postgres']['password']
-        self.DATABASE = config['postgres']['database']
+    def __init__(self):
+        self.HOST = 'team-3-database.ckokfd9swhyk.us-west-2.rds.amazonaws.com'
+        self.USER = 'team_3_user'
+        self.PASSWORD = 'team3password'
+        self.DATABASE = 'postgres'
 
     def open_connection(self):
         conn = psycopg2.connect(    
