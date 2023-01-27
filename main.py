@@ -12,7 +12,7 @@ async def get_accounts():
 
 @app.get("/accounts")
 async def get_accounts(id: str):
-    return acc_ser.get_account(id=id)
+    return acc_ser.get_account(id)
 
 @app.post("/open_account")
 async def open_account(account: Account):
