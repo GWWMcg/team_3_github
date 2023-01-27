@@ -4,18 +4,20 @@ from Repository.repository import AccountRepository, CustomerRepository, Address
 class AccountService:
     def __init__(self, account_repository = AccountRepository()): # why cant just set self.account_service to AccountRepository()?
         self.account_repository = account_repository
+        self.address_repository = AddressRepository()
+        self.customer_repository = CustomerRepository()
 
     def open_account(self, account: Account) -> Account:
 
-        address = self.repository.insert_address(account.customer.address)
+        address = self.address_repository.insert_address(account.customer.address)
 
         account.customer.address = address
 
-        customer = self.repository.insert_customer(account.customer)
+        customer = self.customer_repository.insert_customer(account.customer)
 
         account.customer = customer
 
-        return self.repository.insert_account(account)
+        return self.account_repository.insert_account(account)
     
     def get_accounts(self):
         return self.account_repository.get_accounts()
