@@ -30,7 +30,7 @@ class Repository:
                     SELECT * FROM account
                     """
                 )
-                accounts = cursor.fetchmany(1)
+                accounts = cursor.fetchall()
 
         return accounts
 
