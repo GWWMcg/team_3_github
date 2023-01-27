@@ -1,5 +1,5 @@
 from Models.models import Address, Account, Customer
-from Repository.repository import Repository, AccountRepository, CustomerRepository, AddressRepository
+from Repository.repository import AccountRepository, CustomerRepository, AddressRepository
 
 class AccountService:
     def __init__(self, account_repository = AccountRepository()): # why cant just set self.account_service to AccountRepository()?

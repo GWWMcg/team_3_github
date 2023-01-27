@@ -1,9 +1,7 @@
 from fastapi import FastAPI
-from Services.services import AddressService, Services, AccountService, AddressRepository
+from Services.services import AddressService, AccountService, AddressRepository
 from Models.models import Account, Address, Customer
 app = FastAPI()
-
-service = Services()
 
 @app.get("/list_account")
 async def get_accounts():
