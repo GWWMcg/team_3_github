@@ -6,17 +6,14 @@ from distutils.command.config import config
 import psycopg2
 
 class RepositoryTest(unittest.TestCase):
-    def __inti__(self):
+    def __init__(self):
         self.accountRepo = AccountRepository()
         self.addressRepo = AddressRepository()
         self.customerRepo = CustomerRepository()
-        config = configparser.ConfigParser()
-        config.read('config.ini')
-
-        self.HOST = config['postgres']['host']
-        self.USER = config['postgres']['user']
-        self.PASSWORD = config['postgres']['password']
-        self.DATABASE = config['postgres']['database']
+        self.HOST = 'team-3-database.ckokfd9swhyk.us-west-2.rds.amazonaws.com'
+        self.USER = 'team_3_user'
+        self.PASSWORD = 'team3password'
+        self.DATABASE = 'postgres'
 
     def open_connection(self):
         conn = psycopg2.connect(    
