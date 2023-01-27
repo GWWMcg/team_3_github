@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from Services.services import AddressService, AccountService, AddressRepository
+from Services.services import AddressService, AccountService, AddressRepository, CustomerService
 from Models.models import Account, Address, Customer
 app = FastAPI()
 
 acc_ser = AccountService()
 add_ser = AddressService()
+cust_ser = CustomerService()
 
 @app.get("/list_account")
 async def get_accounts():
@@ -24,10 +25,16 @@ async def get_addresses():
 
 @app.get('/address')
 async def get_addresses(id):
-    return add_ser.get_address(id=id)
+    return add_ser.get_address(id)
 
 @app.post('/open_address')
 async def open_address(address: Address):
     return add_ser.insert_address(address)
 
-# app.get("/")
+@app.get('/list_customers')
+async def get_addresses():
+    return cust_ser.get_addresses()
+
+@app.get('/customer')
+async def get_addresses(id):
+    return cust_ser.get_address(id)

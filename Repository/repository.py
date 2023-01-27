@@ -97,7 +97,7 @@ class AddressRepository:
                     SELECT * FROM address
                     """
                 )
-                addresses = cursor.fetchmany(1)
+                addresses = cursor.fetchall()
         return addresses
 
     def get_address(self, id):
@@ -154,7 +154,7 @@ class CustomerRepository:
                     SELECT * FROM customer
                     """
                 )
-                customers = cursor.fetchmany(1)
+                customers = cursor.fetchall()
         return customers
 
     def get_customer(self, id):
